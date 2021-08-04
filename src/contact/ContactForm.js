@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 
 function ContactForm() {
   return (
-    <Container>
+    <Container fluid>
     <form>
       <Row>
         <label htmlFor="name">

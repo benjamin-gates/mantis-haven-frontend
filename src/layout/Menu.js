@@ -18,7 +18,7 @@ function Menu() {
       className="nav-bar"
     >
       <Container fluid>
-        <Col md={4} alignSelf="flex-start">
+        <Col xs={4} alignSelf="flex-start">
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto" >
@@ -29,7 +29,7 @@ function Menu() {
             </Nav>
           </Navbar.Collapse>
         </Col>
-        <Col md={4} style={{ textAlign: "center" }}>
+        <Col xs={4} style={{ textAlign: "center" }}>
           <Navbar.Brand>
             <Image
               src={logo}
@@ -40,7 +40,7 @@ function Menu() {
             />
           </Navbar.Brand>
         </Col>
-        <Col md={4} style={{ textAlign: "right", alignSelf:"center"}}>
+        <Col xs={4} style={{ textAlign: "right", alignSelf:"center"}}>
           <Nav.Link href="/cart">
             <Image src={cart} width="50px" height="50px" roundedCircle fluid />
           </Nav.Link>

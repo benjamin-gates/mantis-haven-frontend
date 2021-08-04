@@ -1,6 +1,7 @@
 body {
     font-family: 'Baskerville','Lucida Bright','Cambria','Book Antiqua','Big Caslon','Calisto MT', 'serif', 'sans-serif';
     font-size: large;
+    padding-bottom: 90px;
   }
 
 .contact-form {
@@ -18,11 +19,22 @@ h1 {
 
 hr {
   background-color: #70A179;
-  height: 20px;
+  height: 5px;
 }
 
 header .nav-link {
   color: white;
   text-decoration: none;
 
+}
+header {
+  display: flex;
+  flex-direction: row;
+}
+footer .navbar-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
 }

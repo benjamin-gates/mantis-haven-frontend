@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 
 function About() {
   return (
-    <Container as="main">
+    <Container fluid as="main">
       <h1>About Mantis Haven</h1>
       <hr />
       <div>
@@ -14,9 +14,9 @@ function About() {
       <div>
         Over the years, I have kept several different species with a variety of
         colors, sizes, and shapes! My current favorite species is Gongylus
-        Gongylodes, otherwise known as the violin mantis. This mighht be partly due to the fact that I have played the violin since I was 5.
+        Gongylodes, otherwise known as the violin mantis. This might be partly due to the fact that I have played the violin since I was 5.
       </div>
-      <div>Born in a small town in Wyoming, that's where my business remains to this date. I hope you'll find <strong>Mantis Haven</strong> a platform to experience unique and stunning species of mantids, as you become as awestruck with their beauty as I have.</div>
+      <div>Born in a small town in Wyoming, that's where my business remains to this date. I hope you'll find <strong>Mantis Haven</strong> a platform to experience unique and stunning species of mantids, as you become as awestruck with their beauty as I have!</div>
     </Container>
   );
 }

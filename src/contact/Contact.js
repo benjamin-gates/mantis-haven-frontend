@@ -4,7 +4,7 @@ import Container from "react-bootstrap/Container";
 
 function Contact() {
   return (
-    <Container as="main">
+    <Container fluid as="main">
       <h1>Contact</h1>
       <div>
         If you have any questions or just want to chat about mantids, then drop
