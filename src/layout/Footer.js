@@ -5,12 +5,13 @@ import Nav from "react-bootstrap/Nav";
 import instagram from "./instagram.png";
 import Image from "react-bootstrap/Image";
 import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 console.log("Nav", Nav);
 function Footer() {
   return (
     <Navbar as="footer" fixed="bottom" bg="dark" variant="dark">
       <Container>
-        <Col style={{ color: "grey", alignself: "center" }}>
+        <Row style={{ color: "grey", alignself: "center" }}>
           <Nav className="me-auto">
             {" "}
             <Nav.Item>Follow me on Instagram! </Nav.Item>
@@ -21,7 +22,12 @@ function Footer() {
               <Image src={instagram} width="25px" height="25px" />
             </Nav.Link>
           </Nav>
-        </Col>
+        </Row>
+        <Row style={{ color: "grey", alignself: "center" }}>
+          <Nav>
+          <Nav.Link href="/admin">Admin</Nav.Link>
+          </Nav>
+        </Row>
       </Container>
     </Navbar>
   );
