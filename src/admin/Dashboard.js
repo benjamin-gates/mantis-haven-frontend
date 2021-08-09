@@ -2,39 +2,28 @@ import React from "react";
 import Container from "react-bootstrap/Container";
 import CreateMantis from "./CreateMantis";
 import PostUpdate from "./PostUpdate";
-import { Switch, Route } from "react-router-dom";
+import DashboardComponent from "./DashboardComponent";
+import Tabs from "react-bootstrap/Tabs";
+import Tab from "react-bootstrap/Tab";
 
 function Dashboard() {
   return (
     <Container fluid>
-           
-      <ul class="nav nav-tabs">
-        <li class="nav-item">
-          <a
-            class="nav-link active"
-            aria-current="page"
-            href="/dashboard"
-          >
-            View Mantids
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="admin/create">
-            Create Mantis
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/post">
-            Post Update
-          </a>
-        </li>
-      </ul>
-        <Route path="admin/create">
+      <Tabs
+        defaultActiveKey="profile"
+        id="uncontrolled-tab-example"
+        className="mb-3"
+      >
+        <Tab eventKey="dashboard" title="Dashboard">
+          <DashboardComponent />
+        </Tab>
+        <Tab eventKey="create-mantis" title="Create Mantis">
           <CreateMantis />
-        </Route>
-        <Route path="admin/post">
-            <PostUpdate />
-        </Route>
+        </Tab>
+        <Tab eventKey="post-update" title="Post Update">
+          <PostUpdate />
+        </Tab>
+      </Tabs>
     </Container>
   );
 }

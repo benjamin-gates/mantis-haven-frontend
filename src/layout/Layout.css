@@ -4,7 +4,7 @@ body {
     padding-bottom: 90px;
   }
 
-.contact-form {
+.form-component {
   width:100%;
   margin-bottom: 10px;
 }
@@ -19,7 +19,7 @@ h1 {
 
 hr {
   background-color: #70A179;
-  height: 5px;
+  height: 3px;
 }
 
 header .nav-link {

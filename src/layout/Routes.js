@@ -6,7 +6,7 @@ import About from "../about/About";
 import Contact from "../contact/Contact";
 import Shop from "../shop/Shop";
 import Dashboard from "../admin/Dashboard";
-import CreateMantis from "../admin/CreateMantis";
+import Login from "../admin/Login";
 
 function Routes(){
     return <Switch>
@@ -22,10 +22,10 @@ function Routes(){
         <Route path="/contact">
             <Contact />
         </Route>
-        <Route path="admin/create">
-            <CreateMantis />
+        <Route path="/login">
+            <Login />
         </Route>
-        <Route path="/admin">
+        <Route path="/admin/dashboard">
             <Dashboard />
         </Route>
         <Route exact path="/">

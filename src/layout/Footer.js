@@ -4,9 +4,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import instagram from "./instagram.png";
 import Image from "react-bootstrap/Image";
-import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-console.log("Nav", Nav);
 function Footer() {
   return (
     <Navbar as="footer" fixed="bottom" bg="dark" variant="dark">
@@ -25,7 +23,7 @@ function Footer() {
         </Row>
         <Row style={{ color: "grey", alignself: "center" }}>
           <Nav>
-          <Nav.Link href="/admin">Admin</Nav.Link>
+          <Nav.Link href="/login">Admin</Nav.Link>
           </Nav>
         </Row>
       </Container>
