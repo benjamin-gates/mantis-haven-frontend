@@ -42,3 +42,8 @@ footer .navbar-nav{
   align-items: center;
   height: auto;
 }
+
+.input-element {
+  width: 90%; 
+  margin-left: 10px;
+}

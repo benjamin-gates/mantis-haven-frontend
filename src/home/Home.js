@@ -1,54 +1,38 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
-import galinthiasamoena from "./img/galinthias-amoena.jpg";
 import galinthiasamoena2 from "./img/galinthias-amoena-2.jpg";
 import majangellamoultoni from "./img/majangella-moultoni.jpg";
 
+function Home() {
+  const imageURLs = [
+    'https://imgur.com/HUU7CWt',
+    'https://imgur.com/do3JW7f',
+    'https://imgur.com/jx9sWmH',
+    'https://imgur.com/A0wQ8qv',
+  ];
 
-
-function Home(){
+  const imageElements = imageURLs.map((url, index) => {
     return (
-        <Container fluid as="main" style={{ backgroundColor: "black", margin: "0px", padding: "0px"}}>
-        <Carousel fade>
-        <Carousel.Item style={{display: "flex", justifyContent: "center"}}>
-          <img
-            className="d-block"
-            src={galinthiasamoena}
-            alt="Galinthias amoena"
-            height="450px"
-          />
-          <Carousel.Caption>
-            <h5 style={{color: "#C3C9E3"}}>Galinthias amoena</h5>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item style={{display: "flex", justifyContent: "center"}}>
-          <img
-            className="d-block"
-            src={galinthiasamoena2}
-            alt="Galinthias amoena (2)"
-            height="450px"
-          />
-      
-          <Carousel.Caption>
-            <h5 style={{color: "#C3C9E3"}}>Galinthias amoena (2)</h5>
-          </Carousel.Caption>
-        </Carousel.Item>
-        <Carousel.Item style={{display: "flex", justifyContent: "center"}}>
-          <img
-            className="d-block"
-            src={majangellamoultoni}
-            alt="Majangella moultoni"
-            height="450px"
-          />
-      
-          <Carousel.Caption>
-            <h5 style={{color: "#C3C9E3"}}>Majangella moultoni (Giant moss mantis)</h5>
-          </Carousel.Caption>
-        </Carousel.Item>
+      <Carousel.Item style={{ display: "flex", justifyContent: "center" }}>
+        <a href={url}><img src={`https://i.${url.slice(8)}.jpg`} title="source: imgur.com" alt={"image"+index} height="450px" /></a>
+        <Carousel.Caption>
+          <h5 style={{ color: "#C3C9E3" }}>Image {index}</h5>
+        </Carousel.Caption>
+      </Carousel.Item>
+    );
+  });
+  return (
+    <Container
+      fluid
+      as="main"
+      style={{ backgroundColor: "black", margin: "0px", padding: "0px" }}
+    >
+      <Carousel fade>
+       {imageElements}
       </Carousel>
-      </Container>
-      )
+    </Container>
+  );
 }
 
 export default Home;

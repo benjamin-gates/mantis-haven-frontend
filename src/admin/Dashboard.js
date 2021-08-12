@@ -3,6 +3,7 @@ import Container from "react-bootstrap/Container";
 import CreateMantis from "./CreateMantis";
 import PostUpdate from "./PostUpdate";
 import DashboardComponent from "./DashboardComponent";
+import ImageDashboard from "./images/ImageDashboard";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
 
@@ -22,6 +23,9 @@ function Dashboard() {
         </Tab>
         <Tab eventKey="post-update" title="Post Update">
           <PostUpdate />
+        </Tab>
+        <Tab eventKey="image-dashboard" title="Images">
+          <ImageDashboard />
         </Tab>
       </Tabs>
     </Container>
