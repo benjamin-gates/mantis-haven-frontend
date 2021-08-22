@@ -13,12 +13,14 @@
         {
             "image_id": 3,
             "image_title": "Bugger",
-            "url": "https://imgur.com/A0wQ8qv" 
+            "url": "https://imgur.com/A0wQ8qv",
+            "inCarousel": true
         }, 
         {
             "image_id": 4,
             "image_title": "Bug",
-            "url": "https://imgur.com/HUU7CWt"    
+            "url": "https://imgur.com/HUU7CWt",
+            "inCarousel": false  
         },
         {
             "image_id": 5,

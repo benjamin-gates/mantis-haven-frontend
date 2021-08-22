@@ -1,11 +1,11 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
-import CreateMantis from "./CreateMantis";
 import PostUpdate from "./PostUpdate";
 import DashboardComponent from "./DashboardComponent";
 import ImageDashboard from "./images/ImageDashboard";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
+import AddProduct from "./AddProduct";
 
 function Dashboard() {
   return (
@@ -18,15 +18,16 @@ function Dashboard() {
         <Tab eventKey="dashboard" title="Dashboard">
           <DashboardComponent />
         </Tab>
-        <Tab eventKey="create-mantis" title="Create Mantis">
-          <CreateMantis />
+        <Tab eventKey="image-dashboard" title="Images">
+          <ImageDashboard />
+        </Tab>
+        <Tab eventKey="add-product" title="Add Product">
+          <AddProduct />
         </Tab>
         <Tab eventKey="post-update" title="Post Update">
           <PostUpdate />
         </Tab>
-        <Tab eventKey="image-dashboard" title="Images">
-          <ImageDashboard />
-        </Tab>
+        
       </Tabs>
     </Container>
   );

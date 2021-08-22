@@ -16,6 +16,7 @@ function CreateImage() {
   return (
     <Container>
       <h1>Add Image</h1>
+      <hr />
       <ImageForm initialState={initialState} handleSubmit={handleSubmit} />
     </Container>
   );

@@ -1,7 +1,8 @@
 import React, {useState} from "react";
 import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 
 function ImageForm({initialState, handleSubmit}){
     const history = useHistory();
@@ -9,30 +10,26 @@ function ImageForm({initialState, handleSubmit}){
     const handleChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.name]: [e.target.value]
+            [e.target.id]: [e.target.value]
         });
     }
+
+    //console.log("formData", formData);
     
     return (
         <Container>
-            <form onSubmit={handleSubmit}>
-                <Row>
-                    <label htmlFor="image_title" className="form-component">
-                        Title:
-                        <input name="image_title" type="text" id="image_title" value={formData.image_title} onChange={handleChange} />
-                    </label>
-                </Row>
-                <Row>
-                    <label htmlFor="url" className="form-component">
-                        URL:
-                        <input name="url" id="url" type="text" value={formData.url} onChange={handleChange} />
-                    </label>
-                </Row>
-                <Row>
-                    <button type="button" className="btn btn-success btn-outline-light" onClick={() => history.goBack()}>Cancel</button>
-                    <button type="submit" className="btn btn-success btn-outline-light">Submit</button>
-                </Row>
-            </form>
+            <Form onSubmit={handleSubmit}>
+                <Form.Group className="mb-3" controlId="image_title">
+                    <Form.Label>Caption</Form.Label>
+                    <Form.Control type="text" value={formData.image_title} onChange={handleChange} />
+                </Form.Group>
+                <Form.Group className="mb-3" controlId="url">
+                    <Form.Label>URL</Form.Label>
+                    <Form.Control type="text" value={formData.url} onChange={handleChange} />
+                </Form.Group>
+                    <Button variant="success" onClick={() => history.goBack()}>Cancel</Button>
+                    <Button as="submit" variant="success">Submit</Button>
+            </Form>
         </Container>
     )
 }

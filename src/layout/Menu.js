@@ -18,7 +18,7 @@ function Menu() {
       className="nav-bar"
     >
       <Container fluid>
-        <Col xs={4} alignSelf="flex-start">
+        <Col xs={4}>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto" >
