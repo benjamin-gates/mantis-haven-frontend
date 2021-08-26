@@ -27,14 +27,14 @@ function ImageList() {
         <Card style={{ width: "18rem" }} key={image_id}>
           <Card.Body style={{display: "flex", flexDirection: "column"}}>
             <Card.Title>{image_title} {badgeElement}</Card.Title>
-            <Card.Link href={url}>
-              <img
+           
+              <Card.Img
                 src={`https://i.${url.slice(8)}.jpg`}
                 title="source: imgur.com"
                 alt={"image" + image_id}
-                height="200px"
+                height="300px"
               />
-            </Card.Link>
+            
             <ButtonGroup aria-label="images-buttons" style={{width: "50%"}}>
             <Button variant="danger" onClick={handleDelete}>
               Delete
