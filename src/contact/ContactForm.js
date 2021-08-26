@@ -1,38 +1,31 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import ButtonGroup from "react-bootstrap/ButtonGroup";
 
 function ContactForm() {
   return (
-    <Container fluid style={{marginTop: "20px"}}>
-    <form>
-      <Row>
-        <label htmlFor="name" className="form-component">
-          Name:
-          <input type="text" name="name" id="name" style={{width: "80%", marginLeft: "20px"}}/>
-        </label>
-      </Row>
-      <Row>
-        <label htmlFor="email" className="form-component">
-          Email:
-          <input type="text" name="email" id="email" style={{width: "80%", marginLeft: "20px"}}/>
-        </label>
-      </Row>
-      <Row>
-        <label htmlFor="message" className="form-component">
-          Message:
-          <textarea name="message"  id="message" style={{width: "79%", marginLeft: "10px"}}/>
-        </label>
-      </Row>
-      <div className="btn-group" role="group" aria-label="Basic example" style={{marginBottom: "10px", marginLeft: "10px"}}>
-        <button type="button" className="btn btn-success btn-outline-light">
-          Cancel
-        </button>
-        <button type="button" className="btn btn-success btn-outline-light">
+    <Container fluid style={{ marginTop: "20px", marginBottom:"40px"}}>
+      <Form>
+        <Form.Group className="mb-3" controlId="name">
+          <Form.Label>Name: </Form.Label>
+          <Form.Control type="text" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="email">
+          <Form.Label>Email: </Form.Label>
+          <Form.Control type="text" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="message">
+          <Form.Label>Message: </Form.Label>
+          <Form.Control as="textarea" />
+        </Form.Group>
+        <Button variant="success">Cancel</Button>
+        <Button as="submit" variant="success">
           Submit
-        </button>
-      </div>
-    </form>
+        </Button>
+      </Form>
     </Container>
   );
 }
