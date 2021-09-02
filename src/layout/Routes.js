@@ -8,6 +8,7 @@ import Shop from "../shop/Shop";
 import Dashboard from "../admin/Dashboard";
 import Login from "../admin/Login";
 import Updates from "../updates/Updates";
+import ShippingPolicy from "../shop/ShippingPolicy";
 
 function Routes(){
     return <Switch>
@@ -16,6 +17,9 @@ function Routes(){
         </Route>
         <Route path="/shop">
             <Shop />
+        </Route>
+        <Route path="/shipping-policy">
+            <ShippingPolicy />
         </Route>
         <Route path="/about">
             <About />

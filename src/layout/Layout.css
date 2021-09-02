@@ -47,3 +47,7 @@ footer .navbar-nav{
   width: 90%; 
   margin-left: 10px;
 }
+
+.navbar-nav{
+  justify-content: space-between;
+}

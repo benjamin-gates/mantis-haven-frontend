@@ -3,10 +3,12 @@ import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
-import logo from "./logo.jpg";
+import logo from "./logo-only.jpg";
 import cart from "./cart.png";
+import NavDropdown from "react-bootstrap/NavDropdown";
 
 import Col from "react-bootstrap/Col";
+import { NavItem } from "react-bootstrap";
 function Menu() {
   return (
     <Navbar
@@ -17,34 +19,35 @@ function Menu() {
       expand="lg"
       className="nav-bar"
     >
-      <Container fluid>
-        <Col xs={4}>
+      <Container fluid style={{ alignItems: "left" }}>
+        <Col xs={4} style={{ textAlign: "left", alignItems: "center" }}>
+          <Navbar.Brand style={{ fontFamily: "'Meddon', 'cursive'" }}>
+            <Image src={logo} width="50px" height="100px" roundedCircle fluid />{" "}
+            Mantis Haven
+          </Navbar.Brand>
+        </Col>
+        <Col xs={3} style={{ textAlign: "right", contentAlign: "right" }}>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
-            <Nav className="me-auto" >
+            <Nav className="me-auto">
               <Nav.Link href="/home">Home</Nav.Link>
-              <Nav.Link href="/shop">Shop</Nav.Link>
+              
+              <NavDropdown title="Shop" id="nav-dropdown">
+                <NavDropdown.Item eventKey="1" href="/shop">Shop</NavDropdown.Item>
+                <NavDropdown.Item eventKey="2" href="shipping-policy">
+                  Shipping Policy
+                </NavDropdown.Item>
+              </NavDropdown>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/contact">Contact</Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Col>
-        <Col xs={4} style={{ textAlign: "center" }}>
-          <Navbar.Brand>
-            <Image
-              src={logo}
-              width="100px"
-              height="100px"
-              roundedCircle
-              fluid
-            />
-          </Navbar.Brand>
-        </Col>
-        <Col xs={4} style={{ textAlign: "right", alignSelf:"center"}}>
+        {/* <Col xs={4} style={{ textAlign: "right", alignSelf:"center"}}>
           <Nav.Link href="/cart">
             <Image src={cart} width="50px" height="50px" roundedCircle fluid />
           </Nav.Link>
-        </Col>
+  </Col>*/}
       </Container>
     </Navbar>
   );
