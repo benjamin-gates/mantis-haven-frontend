@@ -5,6 +5,7 @@ import Nav from "react-bootstrap/Nav";
 import Image from "react-bootstrap/Image";
 import logo from "./logo-only.jpg";
 import cart from "./cart.png";
+import userIcon from "./abstract-user-flat-1.png";
 import NavDropdown from "react-bootstrap/NavDropdown";
 
 import Col from "react-bootstrap/Col";
@@ -40,6 +41,7 @@ function Menu() {
               </NavDropdown>
               <Nav.Link href="/about">About</Nav.Link>
               <Nav.Link href="/contact">Contact</Nav.Link>
+              <Nav.Link href="/login"><Image src={userIcon} height="30px"/></Nav.Link>
             </Nav>
           </Navbar.Collapse>
         </Col>

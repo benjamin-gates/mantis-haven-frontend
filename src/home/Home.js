@@ -15,7 +15,7 @@ function Home() {
   const imageElements = imageURLs.map((url, index) => {
     return (
       <Carousel.Item style={{ display: "flex", justifyContent: "center" }}>
-        <img src={`https://i.${url.slice(8)}.jpg`} title="source: imgur.com" alt={"image"+index} height="500px" />
+        <img src={`https://i.${url.slice(8)}.jpg`} title="source: imgur.com" alt={"image"+index} height="550px" />
         <Carousel.Caption>
           <h5 style={{ color: "#C3C9E3" }}>Image {index}</h5>
         </Carousel.Caption>

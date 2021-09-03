@@ -21,11 +21,6 @@ function Footer() {
             </Nav.Link>
           </Nav>
         </Row>
-        <Row style={{ color: "grey", alignself: "center" }}>
-          <Nav>
-          <Nav.Link href="/login">Admin</Nav.Link>
-          </Nav>
-        </Row>
       </Container>
     </Navbar>
   );
