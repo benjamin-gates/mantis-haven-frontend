@@ -34,7 +34,7 @@ function Menu() {
               <Nav.Link href="/home">Home</Nav.Link>
               
               <NavDropdown title="Shop" id="nav-dropdown">
-                <NavDropdown.Item eventKey="1" href="/shop">Shop</NavDropdown.Item>
+                <NavDropdown.Item eventKey="1" href="/shop">Products</NavDropdown.Item>
                 <NavDropdown.Item eventKey="2" href="shipping-policy">
                   Shipping Policy
                 </NavDropdown.Item>

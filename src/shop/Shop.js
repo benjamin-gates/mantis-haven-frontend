@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 function Shop() {
   const productList = products.data;
   const productElements = productList.map(
-    ({ product_url, image_url }, index) => {
+    ({ product_url, image_url, price }, index) => {
       return (
         <Card style={{ width: "18rem" }} key={index}>
           <Card.Body style={{ display: "flex", flexDirection: "column" }}>
@@ -19,7 +19,7 @@ function Shop() {
               alt={"mantis image"}
               height="300px"
             />
-
+            <Card.Text style={{ alignSelf: "center" }}>{price}</Card.Text>
             <Button as="a" variant="success" href={product_url}>
               Buy
             </Button>
@@ -29,10 +29,16 @@ function Shop() {
     }
   );
   return (
-    <Container fluid as="main">
+    <Container fluid as="main" style={{marginBottom: "40px"}}>
       <h1>Products</h1>
       <hr />
-      {productElements}
+      <Container
+        fluid
+        as="section"
+        style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
+      >
+        {productElements}
+      </Container>
     </Container>
   );
 }

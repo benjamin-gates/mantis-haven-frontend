@@ -2,15 +2,18 @@
     "data": [
         {
             "product_url": "https://checkout.square.site/merchant/MLAK0Z9Y4X1D7/checkout/27ELB2WDTXFJYBGMGDZQUT2J",
-            "image_url": "https://imgur.com/HUU7CWt"
+            "image_url": "https://imgur.com/HUU7CWt",
+            "price": "$2"
         },
         {
             "product_url": "https://checkout.square.site/merchant/MLAK0Z9Y4X1D7/checkout/27ELB2WDTXFJYBGMGDZQUT2J",
-            "image_url": "https://imgur.com/jx9sWmH"
+            "image_url": "https://imgur.com/jx9sWmH",
+            "price": "$2"
         }, 
         {
             "product_url": "https://checkout.square.site/merchant/MLAK0Z9Y4X1D7/checkout/27ELB2WDTXFJYBGMGDZQUT2J",
-            "image_url": "https://imgur.com/A0wQ8qv"
+            "image_url": "https://imgur.com/A0wQ8qv",
+            "price": "$2"
         }
     ]
 }
