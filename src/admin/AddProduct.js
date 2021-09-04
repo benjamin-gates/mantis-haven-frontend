@@ -1,20 +1,24 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Col from "react-bootstrap/Col";
 import images from "../data/images.json";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
 
 function AddProduct() {
   const history = useHistory();
   const imageList = images.data;
-  const imageOptions = imageList.map(({ image_id, image_title, url },index) => {
-    return (<option value={image_id} key={image_id}>
-      {image_title}
-    </option>);
-  });
+  const imageOptions = imageList.map(
+    ({ image_id, image_title, url }, index) => {
+      return (
+        <option value={image_id} key={image_id}>
+          {image_title}
+        </option>
+      );
+    }
+  );
   const handleSubmit = (e) => {
     e.preventDefault();
     history.push("/shop");
@@ -32,6 +36,13 @@ function AddProduct() {
         <Form.Group className="mb-3" controlId="product-url">
           <Form.Label>URL</Form.Label>
           <Form.Control type="text" />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="price">
+          <Form.Label>Price</Form.Label>
+          <InputGroup className="mb-3">
+            <InputGroup.Text>$</InputGroup.Text>
+            <FormControl aria-label="Amount (to the nearest dollar)" />
+          </InputGroup>
         </Form.Group>
         <Form.Group className="mb-3" controlId="image_id">
           <Form.Select aria-label="Default select example" size="lg">

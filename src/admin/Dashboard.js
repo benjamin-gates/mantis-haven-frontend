@@ -1,7 +1,6 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import PostUpdate from "./PostUpdate";
-import DashboardComponent from "./DashboardComponent";
 import ImageDashboard from "./images/ImageDashboard";
 import Tabs from "react-bootstrap/Tabs";
 import Tab from "react-bootstrap/Tab";
@@ -15,9 +14,6 @@ function Dashboard() {
         id="uncontrolled-tab-example"
         className="mb-3"
       >
-        <Tab eventKey="dashboard" title="Dashboard">
-          <DashboardComponent />
-        </Tab>
         <Tab eventKey="image-dashboard" title="Images">
           <ImageDashboard />
         </Tab>
