@@ -27,19 +27,25 @@ function Menu() {
             Mantis Haven
           </Navbar.Brand>
         </Col>
-        <Col xs={3} style={{ textAlign: "right", contentAlign: "right" }}>
+        <Col xs={3.5}>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className="me-auto">
               <Nav.Link href="/home">Home</Nav.Link>
               
-              <NavDropdown title="Shop" id="nav-dropdown">
+              <NavDropdown title="Shop" id="nav-dropdown-shop">
                 <NavDropdown.Item eventKey="1" href="/shop">Products</NavDropdown.Item>
-                <NavDropdown.Item eventKey="2" href="shipping-policy">
+                <NavDropdown.Item eventKey="2" href="/shipping-policy">
                   Shipping Policy
                 </NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="/about">About</Nav.Link>
+              <NavDropdown title="Resources" id="nav-dropdown-resources">
+                <NavDropdown.Item eventKey="1" href="/about">About</NavDropdown.Item>
+                <NavDropdown.Item eventKey="2" href="/notifications">
+                  Notifications
+                </NavDropdown.Item>
+                
+              </NavDropdown>
               <Nav.Link href="/contact">Contact</Nav.Link>
               <Nav.Link href="/login"><Image src={userIcon} height="30px"/></Nav.Link>
             </Nav>

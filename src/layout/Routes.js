@@ -9,6 +9,7 @@ import Dashboard from "../admin/Dashboard";
 import Login from "../admin/Login";
 import Updates from "../updates/Updates";
 import ShippingPolicy from "../shop/ShippingPolicy";
+import Notifications from "../notifications/Notifications";
 
 function Routes(){
     return <Switch>
@@ -26,6 +27,9 @@ function Routes(){
         </Route>
         <Route path="/contact">
             <Contact />
+        </Route>
+        <Route path="/notifications">
+            <Notifications />
         </Route>
         <Route path="/updates">
             <Updates />
