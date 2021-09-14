@@ -26,7 +26,7 @@ function Home() {
     <Container
       fluid
       as="main"
-      style={{ backgroundColor: "black", margin: "0px", padding: "0px" }}
+      style={{ backgroundColor: "black", margin: "0px", padding: "20px" }}
     >
       <Carousel fade>
        {imageElements}
