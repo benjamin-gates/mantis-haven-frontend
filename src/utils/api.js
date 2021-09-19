@@ -50,3 +50,14 @@ async function fetchJson(url, options, onCancel) {
     return Promise.resolve(onCancel);
   }
 }
+
+/**
+ * Retrieves all existing images
+ * @returns {Promise<[reservation]>}
+ *  a promise that resolves to a possibly empty array of images saved in the database.
+ */
+ export async function listImages(signal) {
+  const url = new URL(`${API_BASE_URL}/images`);
+
+  return await fetchJson(url, { headers, signal }, []);
+}

@@ -1,15 +1,29 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import EditImage from "./EditImage";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Card from "react-bootstrap/Card";
-import images from "../../data/images.json";
+//import images from "../../data/images.json";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
+import {listImages} from "../../utils/api";
 
 function ImageList() {
   //console.log('images', images);
-  const imageList = images.data;
+  const [images, setImages] = useState([]);
+  const [imagesError, setImagesError] = useState([]);
+  useEffect(loadImages, []);
+  function loadImages() {
+    const abortController = new AbortController();
+    setReservationsError(null);
+    listImages(abortController.signal)
+      .then(setImages)
+      .catch(setImagesError);
+    return () => {
+      abortController.abort();
+    };
+  }
+  //const imageList = images.data;
   //console.log('image list', imageList);
   const handleDelete = (e) => {
     e.preventDefault();
@@ -19,7 +33,7 @@ function ImageList() {
       console.log("some ajax to delete the image");
     }
   };
-  const imageElements = imageList.map(
+  const imageElements = images.map(
     ({ image_id, image_title, url, inCarousel }) => {
       let badgeElement = null;
       inCarousel ? badgeElement = <Badge bg="info" text="light">Carousel</Badge> : badgeElement=null;
