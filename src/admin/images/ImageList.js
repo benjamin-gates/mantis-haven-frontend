@@ -7,6 +7,7 @@ import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
 import {listImages} from "../../utils/api";
+import ErrorAlert from "../../layout/ErrorAlert";
 
 function ImageList() {
   //console.log('images', images);
@@ -15,7 +16,7 @@ function ImageList() {
   useEffect(loadImages, []);
   function loadImages() {
     const abortController = new AbortController();
-    setReservationsError(null);
+    setImagesError(null);
     listImages(abortController.signal)
       .then(setImages)
       .catch(setImagesError);
@@ -34,16 +35,16 @@ function ImageList() {
     }
   };
   const imageElements = images.map(
-    ({ image_id, image_title, url, inCarousel }) => {
+    ({ image_id, caption, image_url, inCarousel }) => {
       let badgeElement = null;
       inCarousel ? badgeElement = <Badge bg="info" text="light">Carousel</Badge> : badgeElement=null;
       return (
         <Card style={{ width: "18rem" }} key={image_id}>
           <Card.Body style={{display: "flex", flexDirection: "column"}}>
-            <Card.Title>{image_title} {badgeElement}</Card.Title>
+            <Card.Title>{caption} {badgeElement}</Card.Title>
            
               <Card.Img
-                src={`https://i.${url.slice(8)}.jpg`}
+                src={`https://i.${image_url.slice(8)}.jpg`}
                 title="source: imgur.com"
                 alt={"image" + image_id}
                 height="300px"
@@ -55,8 +56,8 @@ function ImageList() {
             </Button>
             <EditImage
               image_id={image_id}
-              image_title={image_title}
-              url={url}
+              image_title={caption}
+              url={image_url}
             />
             </ButtonGroup>
           </Card.Body>
@@ -70,7 +71,8 @@ function ImageList() {
       style={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}
     >
       {" "}
-      {imageElements}{" "}
+      {images ? imageElements : <ErrorAlert error={imagesError} />}{" "}
+      
     </Container>
   );
 }
