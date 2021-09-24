@@ -4,31 +4,30 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 
-function ImageForm({initialState, handleSubmit}){
+function ImageForm({setFormData, handleSubmit, formData}){
     const history = useHistory();
-    const [formData, setFormData] = useState(initialState);
     const handleChange = (e) => {
         setFormData({
             ...formData,
-            [e.target.id]: [e.target.value]
+            [e.target.id]: e.target.value
         });
     }
 
-    //console.log("formData", formData);
+    console.log("formData", formData);
     
     return (
         <Container>
             <Form onSubmit={handleSubmit}>
-                <Form.Group className="mb-3" controlId="image_title">
+                <Form.Group className="mb-3" controlId="caption">
                     <Form.Label>Caption</Form.Label>
-                    <Form.Control type="text" value={formData.image_title} onChange={handleChange} />
+                    <Form.Control type="text" value={formData.caption} onChange={handleChange} />
                 </Form.Group>
-                <Form.Group className="mb-3" controlId="url">
+                <Form.Group className="mb-3" controlId="image_url">
                     <Form.Label>URL</Form.Label>
-                    <Form.Control type="text" value={formData.url} onChange={handleChange} />
+                    <Form.Control type="text" value={formData.image_url} onChange={handleChange} />
                 </Form.Group>
                     <Button variant="success" onClick={() => history.goBack()}>Cancel</Button>
-                    <Button as="submit" variant="success">Submit</Button>
+                    <Button type="submit" variant="success">Submit</Button>
             </Form>
         </Container>
     )

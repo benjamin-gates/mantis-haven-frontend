@@ -1,3 +1,5 @@
+import CreateImage from "../admin/images/CreateImage";
+
 require("dotenv").config();
 
 const inDevelopment = process.env.NODE_ENV !== "production";
@@ -56,8 +58,17 @@ async function fetchJson(url, options, onCancel) {
  * @returns {Promise<[reservation]>}
  *  a promise that resolves to a possibly empty array of images saved in the database.
  */
- export async function listImages(signal) {
+export async function listImages(signal) {
   const url = new URL(`${API_BASE_URL}/images`);
 
   return await fetchJson(url, { headers, signal }, []);
+}
+
+export async function createImage(image) {
+  const url = new URL(`${API_BASE_URL}/images`);
+  return await fetchJson(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ data: image }),
+  });
 }
