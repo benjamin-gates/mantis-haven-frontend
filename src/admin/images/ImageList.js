@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import EditImage from "./EditImage";
 import Button from "react-bootstrap/Button";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
@@ -6,7 +6,8 @@ import Card from "react-bootstrap/Card";
 //import images from "../../data/images.json";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
-import {listImages} from "../../utils/api";
+import { listImages } from "../../utils/api";
+import { deleteImage } from "../../utils/api";
 import ErrorAlert from "../../layout/ErrorAlert";
 
 function ImageList() {
@@ -17,48 +18,55 @@ function ImageList() {
   function loadImages() {
     const abortController = new AbortController();
     setImagesError(null);
-    listImages(abortController.signal)
-      .then(setImages)
-      .catch(setImagesError);
+    listImages(abortController.signal).then(setImages).catch(setImagesError);
     return () => {
       abortController.abort();
     };
   }
-  //const imageList = images.data;
-  //console.log('image list', imageList);
+
   const handleDelete = (e) => {
     e.preventDefault();
     if (
       window.confirm("Do you want to delete this image? This cannot be undone.")
     ) {
-      console.log("some ajax to delete the image");
+      deleteImage(e.target.id)
+      .then(() => document.location.reload());
+
     }
   };
   const imageElements = images.map(
     ({ image_id, caption, image_url, inCarousel }) => {
       let badgeElement = null;
-      inCarousel ? badgeElement = <Badge bg="info" text="light">Carousel</Badge> : badgeElement=null;
+      inCarousel
+        ? (badgeElement = (
+            <Badge bg="info" text="light">
+              Carousel
+            </Badge>
+          ))
+        : (badgeElement = null);
       return (
         <Card style={{ width: "18rem" }} key={image_id}>
-          <Card.Body style={{display: "flex", flexDirection: "column"}}>
-            <Card.Title>{caption} {badgeElement}</Card.Title>
-           
-              <Card.Img
-                src={`https://i.${image_url.slice(8)}.jpg`}
-                title="source: imgur.com"
-                alt={"image" + image_id}
-                height="300px"
-              />
-            
-            <ButtonGroup aria-label="images-buttons" style={{width: "50%"}}>
-            <Button variant="danger" onClick={handleDelete}>
-              Delete
-            </Button>
-            <EditImage
-              image_id={image_id}
-              image_title={caption}
-              url={image_url}
+          <Card.Body style={{ display: "flex", flexDirection: "column" }}>
+            <Card.Title>
+              {caption} {badgeElement}
+            </Card.Title>
+
+            <Card.Img
+              src={`https://i.${image_url.slice(8)}.jpg`}
+              title="source: imgur.com"
+              alt={"image" + image_id}
+              height="300px"
             />
+
+            <ButtonGroup aria-label="images-buttons" style={{ width: "50%" }}>
+              <Button id={image_id} variant="danger" onClick={handleDelete}>
+                Delete
+              </Button>
+              <EditImage
+                image_id={image_id}
+                image_title={caption}
+                url={image_url}
+              />
             </ButtonGroup>
           </Card.Body>
         </Card>
@@ -72,7 +80,6 @@ function ImageList() {
     >
       {" "}
       {images ? imageElements : <ErrorAlert error={imagesError} />}{" "}
-      
     </Container>
   );
 }

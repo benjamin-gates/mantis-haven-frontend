@@ -72,3 +72,11 @@ export async function createImage(image) {
     body: JSON.stringify({ data: image }),
   });
 }
+
+export async function deleteImage(imageId){
+  const url = new URL(`${API_BASE_URL}/images/${imageId}`);
+  return await fetchJson(url, {
+    method: "DELETE",
+    headers,
+  });
+}
