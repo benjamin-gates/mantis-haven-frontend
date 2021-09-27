@@ -3,6 +3,7 @@ import {useHistory} from "react-router-dom";
 import ImageForm from "./ImageForm";
 import Container from "react-bootstrap/Container";
 import {createImage} from "../../utils/api";
+import ErrorAlert from "../../layout/ErrorAlert";
 
 function CreateImage() {
   const initialState = {
@@ -10,19 +11,22 @@ function CreateImage() {
     caption: "",
   };
   const history = useHistory();
+  const [createError, setCreateError] = useState(undefined);
   const [formData, setFormData] = useState(initialState);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     createImage(formData)
     .then(setFormData(initialState))
-    .then(history.push("/"))
+    //.then(history.push("/"))
+    .catch(setCreateError)
   };
   return (
     <Container>
       <h1>Add Image</h1>
       <hr />
       <ImageForm setFormData={setFormData} handleSubmit={handleSubmit} formData={formData}/>
+     {createError ? <ErrorAlert error={createError} /> : null}
     </Container>
   );
 }
