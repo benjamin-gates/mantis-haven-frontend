@@ -40,6 +40,9 @@ function Routes(){
         <Route path="/admin/dashboard">
             <Dashboard />
         </Route>
+        <Route path="/admin/dashboard/:service">
+            <Dashboard />
+        </Route>
         <Route exact path="/">
             <Home />
         </Route>
