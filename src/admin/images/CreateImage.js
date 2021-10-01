@@ -22,7 +22,7 @@ function CreateImage() {
     .catch(setCreateError)
   };
   return (
-    <Container>
+    <Container fluid as="section" style={{ marginBottom: "40px" }}>
       <h1>Add Image</h1>
       <hr />
       <ImageForm setFormData={setFormData} handleSubmit={handleSubmit} formData={formData}/>

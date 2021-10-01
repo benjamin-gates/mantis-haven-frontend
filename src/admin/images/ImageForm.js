@@ -16,7 +16,6 @@ function ImageForm({setFormData, handleSubmit, formData}){
     console.log("formData", formData);
     
     return (
-        <Container>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="caption">
                     <Form.Label>Caption</Form.Label>
@@ -29,7 +28,6 @@ function ImageForm({setFormData, handleSubmit, formData}){
                     <Button variant="success" onClick={() => history.goBack()}>Cancel</Button>
                     <Button type="submit" variant="success">Submit</Button>
             </Form>
-        </Container>
     )
 }
 
