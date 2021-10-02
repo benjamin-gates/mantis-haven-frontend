@@ -1,7 +1,6 @@
 import React from "react";
 import { useRouteMatch } from "react-router";
 import { Switch, Route } from "react-router-dom";
-import ImageDashboard from "./images/ImageDashboard";
 import ImageList from "./images/ImageList";
 import CreateImage from "./images/CreateImage";
 import PostUpdate from "./PostUpdate";

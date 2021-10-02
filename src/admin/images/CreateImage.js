@@ -18,7 +18,7 @@ function CreateImage() {
     e.preventDefault();
     createImage(formData)
     .then(setFormData(initialState))
-    //.then(history.push("/"))
+    .then(history.push("/admin/dashboard/images"))
     .catch(setCreateError)
   };
   return (

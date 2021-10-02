@@ -3,7 +3,6 @@ import { useRouteMatch } from "react-router";
 import {Switch, Route, useHistory, useParams} from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import PostUpdate from "./PostUpdate";
-import ImageDashboard from "./images/ImageDashboard";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import AddProduct from "./AddProduct";
