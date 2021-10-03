@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import {editImage} from "../../utils/api";
 
 function EditImage({ image_id, image_title, url, inCarousel }) {
   const [show, setShow] = useState(false);
@@ -32,7 +33,7 @@ function EditImage({ image_id, image_title, url, inCarousel }) {
 
       <Modal show={show} onHide={handleClose} size="sm">
         <Modal.Header>
-          <Modal.Title as="label" htmlFor="image_title">
+          <Modal.Title as="label" htmlFor="image_title" wrap>
             <input
               type="text"
               name="image_title"

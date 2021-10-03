@@ -80,3 +80,12 @@ export async function deleteImage(imageId){
     headers,
   });
 }
+
+export async function editImage(imageId, image){
+  const url = new URL(`${API_BASE_URL}/images/${imageId}`);
+  return await fetchJson(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({ data: image })
+  });
+}
