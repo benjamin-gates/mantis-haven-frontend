@@ -13,8 +13,9 @@ import ErrorAlert from "../../layout/ErrorAlert";
 function ImageList() {
   //console.log('images', images);
   const [images, setImages] = useState([]);
+  const [saves, setSaves] = useState(0);
   const [imagesError, setImagesError] = useState([]);
-  useEffect(loadImages, []);
+  useEffect(loadImages, [saves]);
   function loadImages() {
     const abortController = new AbortController();
     setImagesError(null);
@@ -66,6 +67,9 @@ function ImageList() {
                 image_id={image_id}
                 image_title={caption}
                 url={image_url}
+                inCarousel={inCarousel}
+                setSaves={setSaves}
+                saves={saves}
               />
             </ButtonGroup>
           </Card.Body>

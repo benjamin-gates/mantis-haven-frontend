@@ -13,7 +13,7 @@ function ImageForm({setFormData, handleSubmit, formData}){
         });
     }
 
-    console.log("formData", formData);
+   // console.log("formData", formData);
     
     return (
             <Form onSubmit={handleSubmit}>

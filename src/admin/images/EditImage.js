@@ -2,27 +2,32 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import {editImage} from "../../utils/api";
+import ErrorAlert from "../../layout/ErrorAlert";
 
-function EditImage({ image_id, image_title, url, inCarousel }) {
+function EditImage({ image_id, image_title, url, inCarousel, setSaves, saves }) {
   const [show, setShow] = useState(false);
+  const [editError, setEditError] = useState(undefined);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [formData, setFormData] = useState({
-    image_id: image_id,
-    image_title: image_title,
+    caption: image_title,
+    image_url: url
   });
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: [e.target.value],
+      [e.target.name]: e.target.value,
     });
   };
   const handleSave = (e) => {
     e.preventDefault();
-    console.log("some ajax to handle the save");
-    setShow(false);
+    //console.log("some ajax to handle the save");
+    editImage(image_id, formData)
+    .then(() => setSaves(saves + 1))
+    .then(() => setShow(false))
+    .catch((error) => setEditError(error));
   };
   
   return (
@@ -33,12 +38,12 @@ function EditImage({ image_id, image_title, url, inCarousel }) {
 
       <Modal show={show} onHide={handleClose} size="sm">
         <Modal.Header>
-          <Modal.Title as="label" htmlFor="image_title" wrap>
+          <Modal.Title as="label" htmlFor="caption" wrap>
             <input
               type="text"
-              name="image_title"
-              id="image_title"
-              value={formData.image_title}
+              name="caption"
+              id="caption"
+              value={formData.caption}
               style={{
                 border: "0px solid",
                 fontWeight: "bold",
@@ -75,6 +80,7 @@ function EditImage({ image_id, image_title, url, inCarousel }) {
             onChange={handleChange}
           />
         </Modal.Body>
+        {editError ? <ErrorAlert error={editError} /> : null}
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
