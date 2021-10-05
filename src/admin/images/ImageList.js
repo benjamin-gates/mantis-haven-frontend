@@ -36,9 +36,9 @@ function ImageList() {
     }
   };
   const imageElements = images.map(
-    ({ image_id, caption, image_url, inCarousel }) => {
+    ({ image_id, caption, image_url, carousel_image }) => {
       let badgeElement = null;
-      inCarousel
+      carousel_image
         ? (badgeElement = (
             <Badge bg="info" text="light">
               Carousel
@@ -67,7 +67,7 @@ function ImageList() {
                 image_id={image_id}
                 image_title={caption}
                 url={image_url}
-                inCarousel={inCarousel}
+                inCarousel={carousel_image}
                 setSaves={setSaves}
                 saves={saves}
               />
