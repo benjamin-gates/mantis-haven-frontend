@@ -1,17 +1,29 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
-import notifications from "../data/notifications.json";
+//import notifications from "../data/notifications.json";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import {listUpdates} from "../utils/api";
 
 function Updates() {
-  const notificationsList = notifications.data;
-  const notificationsElement = notificationsList.map(
-    ({ title, message, image_url, date }, index) => {
+  const[updates, setUpdates] = useState([]);
+  const[updatesError, setUpdatesError] = useState(null);
+  useEffect(loadUpdates, []);
+  function loadUpdates() {
+    const abortController = new AbortController();
+    setUpdatesError(null);
+    listUpdates(abortController.signal).then(setUpdates).catch(setUpdatesError);
+    return () => {
+      abortController.abort();
+    };
+  }
+  //const notificationsList = notifications.data;
+  const updatesElement = updates.map(
+    ({title, message, created_at}, index) => {
       return (
         <Card key={index} style={{marginBottom: "10px"}}>
-          <Card.Header>{date}</Card.Header>
+          <Card.Header>{created_at}</Card.Header>
           <Card.Body>
             <Row>
               <Col xs={10}>
@@ -19,7 +31,7 @@ function Updates() {
                 <Card.Text>{message}</Card.Text>
               </Col>
 
-              {image_url ? (
+              {/*image_url ? (
                 <Col xs={2}>
                   <Card.Img
                     src={`https://i.${image_url.slice(8)}.jpg`}
@@ -28,18 +40,19 @@ function Updates() {
                     style={{ width: "100%" }}
                   />
                 </Col>
-              ) : null}
+              ) : null*/}
             </Row>
           </Card.Body>
-        </Card>
-      );
-    }
-  );
+              </Card>
+              );
+    
+    });
   return (
     <Container fluid as="main" style={{marginBottom: "40px"}}>
       <h1>Updates</h1>
       <hr />
-      {notificationsElement}
+      {/*notificationsElement*/}
+      {updatesElement}
     </Container>
   );
 }
