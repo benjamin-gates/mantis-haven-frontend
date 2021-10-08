@@ -19,12 +19,6 @@ function Home() {
     };
   }
 
-  /*const imageURLs = [
-    'https://imgur.com/HUU7CWt',
-    'https://imgur.com/do3JW7f',
-    'https://imgur.com/jx9sWmH',
-    'https://imgur.com/A0wQ8qv',
-  ];*/
 
   const carouselImages = images.filter(({carousel_image}) => carousel_image)
 

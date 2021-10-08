@@ -41,8 +41,8 @@ function Menu() {
               </NavDropdown>
               <NavDropdown title="Resources" id="nav-dropdown-resources">
                 <NavDropdown.Item eventKey="1" href="/about">About</NavDropdown.Item>
-                <NavDropdown.Item eventKey="2" href="/notifications">
-                  Notifications
+                <NavDropdown.Item eventKey="2" href="/updates">
+                  Updates
                 </NavDropdown.Item>
                 
               </NavDropdown>

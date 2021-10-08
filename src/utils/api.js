@@ -89,3 +89,10 @@ export async function editImage(imageId, image){
     body: JSON.stringify({ data: image })
   });
 }
+
+
+export async function listUpdates(signal) {
+  const url = new URL(`${API_BASE_URL}/updates`);
+
+  return await fetchJson(url, { headers, signal }, []);
+}
