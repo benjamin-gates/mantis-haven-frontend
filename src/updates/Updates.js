@@ -5,6 +5,7 @@ import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import {listUpdates} from "../utils/api";
+import {formatAsDate} from "../utils/date-time";
 
 function Updates() {
   const[updates, setUpdates] = useState([]);
@@ -23,7 +24,7 @@ function Updates() {
     ({title, message, created_at}, index) => {
       return (
         <Card key={index} style={{marginBottom: "10px"}}>
-          <Card.Header>{created_at}</Card.Header>
+          <Card.Header>{formatAsDate(created_at)}</Card.Header>
           <Card.Body>
             <Row>
               <Col xs={10}>
