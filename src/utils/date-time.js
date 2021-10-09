@@ -1,4 +1,5 @@
 export function formatAsDate(date){
+    const monthsArray = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
     const dateObject = new Date(date);
-    return dateObject.getFullYear();
+    return `${monthsArray[dateObject.getMonth()]} ${dateObject.getDay()}, ${dateObject.getFullYear()}`;
 }
