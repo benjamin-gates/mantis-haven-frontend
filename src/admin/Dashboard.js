@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { useRouteMatch } from "react-router";
 import {Switch, Route, useHistory, useParams} from "react-router-dom";
 import Container from "react-bootstrap/Container";
-import PostUpdate from "./PostUpdate";
+import PostUpdate from "./updates/PostUpdate";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
 import AddProduct from "./AddProduct";

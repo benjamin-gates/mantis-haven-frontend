@@ -1,13 +1,12 @@
 import React, {useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
-//import notifications from "../data/notifications.json";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import {listUpdates} from "../utils/api";
-import {formatAsDate} from "../utils/date-time";
+import {listUpdates} from "../../utils/api";
+import {formatAsDate} from "../../utils/date-time";
 
-function Updates() {
+function ListUpdates() {
   const[updates, setUpdates] = useState([]);
   const[updatesError, setUpdatesError] = useState(null);
   useEffect(loadUpdates, []);
@@ -58,4 +57,4 @@ function Updates() {
   );
 }
 
-export default Updates;
+export default ListUpdates;

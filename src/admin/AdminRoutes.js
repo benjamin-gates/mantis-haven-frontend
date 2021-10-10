@@ -3,8 +3,9 @@ import { useRouteMatch } from "react-router";
 import { Switch, Route } from "react-router-dom";
 import ImageList from "./images/ImageList";
 import CreateImage from "./images/CreateImage";
-import PostUpdate from "./PostUpdate";
+import PostUpdate from "./updates/PostUpdate";
 import AddProduct from "./AddProduct";
+import ListUpdates from "./updates/ListUpdates";
 
 function AdminRoutes() {
   const { url } = useRouteMatch();
@@ -21,6 +22,9 @@ function AdminRoutes() {
       </Route>
       <Route path="/admin/dashboard/updates/add">
         <PostUpdate />
+      </Route>
+      <Route path="/admin/dashboard/updates">
+        <ListUpdates />
       </Route>
     </Switch>
   );
