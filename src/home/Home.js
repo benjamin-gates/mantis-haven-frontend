@@ -9,6 +9,11 @@ import ErrorAlert from "../layout/ErrorAlert";
 function Home() {
   const [images, setImages] = useState([]);
   const [imagesError, setImagesError] = useState(null);
+  const [index, setIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setIndex(selectedIndex);
+  }
   useEffect(loadImages, []);
   function loadImages() {
     const abortController = new AbortController();
@@ -22,12 +27,12 @@ function Home() {
 
   const carouselImages = images.filter(({carousel_image}) => carousel_image)
 
-  const imageElements = carouselImages.map(({image_url}, index) => {
+  const imageElements = carouselImages.map(({image_url, caption}, index) => {
     return (
       <Carousel.Item style={{ display: "flex", justifyContent: "center" }}>
-        <img src={`https://i.${image_url.slice(8)}.jpg`} title="source: imgur.com" alt={"image"+index} height="550px" />
-        <Carousel.Caption>
-          <h5 style={{ color: "#C3C9E3" }}>Image {index}</h5>
+        <img src={`https://i.${image_url.slice(8)}.jpg`} title="source: imgur.com" alt={"image"+index} height="550px"/>
+        <Carousel.Caption style={{textAlign: "center"}}>
+          <h5 style={{ color: "#C3C9E3", textAlign: "center", alignSelf: "center", alignContent: "center"}}>{caption}</h5>
         </Carousel.Caption>
       </Carousel.Item>
     );
@@ -38,9 +43,9 @@ function Home() {
       as="main"
       style={{ backgroundColor: "black", margin: "0px", padding: "20px" }}
     >
-      {images.length ? <Carousel fade>
+      {images.length ? <Carousel variant="dark" fade>
        {imageElements}
-       <ErrorAlert error={imagesError} />
+       {/*<ErrorAlert error={imagesError} />*/}
       </Carousel> : <div>Loading...</div>}
     </Container>
   );

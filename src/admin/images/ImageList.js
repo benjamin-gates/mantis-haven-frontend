@@ -58,6 +58,7 @@ function ImageList() {
               alt={"image" + image_id}
               height="300px"
             />
+            <Card.Text>ID: {image_id}</Card.Text>
 
             <ButtonGroup aria-label="images-buttons" style={{ width: "50%" }}>
               <Button id={image_id} variant="danger" onClick={handleDelete}>

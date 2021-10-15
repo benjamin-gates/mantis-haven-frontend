@@ -23,6 +23,10 @@ function PostUpdate() {
           <Form.Label>Message:</Form.Label>
           <Form.Control type="text" />
         </Form.Group>
+        <Form.Group className="mb-3" controlId="image_id">
+          <Form.Label>Image ID:</Form.Label>
+          <Form.Control type="number" min="0" max="30"/>
+        </Form.Group>
         <Button
           variant="success"
           onClick={() => history.goBack()}
