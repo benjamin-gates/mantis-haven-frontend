@@ -8,7 +8,7 @@ function PostUpdate() {
   const history = useHistory();
   const handleSubmit = (e) => {
     e.preventDefault();
-    history.push("/updates");
+    history.push("/updates/");
   };
   return (
     <Container fluid as="section">
@@ -33,7 +33,7 @@ function PostUpdate() {
         >
           Cancel
         </Button>
-        <Button as="submit" variant="success">
+        <Button type="submit" variant="success">
           Submit
         </Button>
       </Form>

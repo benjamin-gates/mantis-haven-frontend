@@ -41,7 +41,7 @@ function Home() {
     <Container
       fluid
       as="main"
-      style={{ backgroundColor: "black", margin: "0px", padding: "20px" }}
+      style={{ backgroundColor: "black", margin: "0px", padding: "20px 20px 50px 20px" }}
     >
       {images.length ? <Carousel variant="dark" fade>
        {imageElements}
