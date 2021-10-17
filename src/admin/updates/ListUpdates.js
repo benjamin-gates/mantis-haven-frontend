@@ -5,14 +5,17 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Button from "react-bootstrap/Button";
-import { listUpdates } from "../../utils/api";
+import { listUpdates, deleteUpdate } from "../../utils/api";
 import { formatAsDate } from "../../utils/date-time";
 import EditUpdate from "./EditUpdate";
+import ErrorAlert from "../../layout/ErrorAlert";
 
 function ListUpdates() {
   const [updates, setUpdates] = useState([]);
   const [updatesError, setUpdatesError] = useState(null);
-  useEffect(loadUpdates, []);
+  const [deleteClicks, setDeleteClicks] = useState(0);
+  const [deleteError, setDeleteError] = useState(undefined);
+  useEffect(loadUpdates, [deleteClicks]);
   function loadUpdates() {
     const abortController = new AbortController();
     setUpdatesError(null);
@@ -22,12 +25,21 @@ function ListUpdates() {
     };
   }
 
-  const handleDelete = () => {
-    console.log("some ajax to handle the delete");
+  const handleDelete = (e) => {
+    //console.log('event', e);
+    e.preventDefault();
+    if (
+      window.confirm("Do you want to delete this image? This cannot be undone.")
+    ) {
+      deleteUpdate(e.target.id)
+      .then(() => setDeleteClicks(deleteClicks + 1))
+      .catch(setDeleteError);
+    }
   };
   //const notificationsList = notifications.data;
   const updatesElement = updates.map(
     ({ update_id, title, message, created_at, image_url }, index) => {
+      //console.log('update id', update_id);
       return (
         <Card key={index} style={{ marginBottom: "10px" }}>
           <Card.Header>{formatAsDate(created_at)}</Card.Header>
@@ -61,6 +73,7 @@ function ListUpdates() {
               image_url={image_url}
             />
           </ButtonGroup>
+          {deleteError ? <ErrorAlert error={deleteError} /> : null}
         </Card>
       );
     }
@@ -69,8 +82,7 @@ function ListUpdates() {
     <Container fluid as="main" style={{ marginBottom: "40px" }}>
       <h1>Updates</h1>
       <hr />
-      {/*notificationsElement*/}
-      {updatesElement}
+      {updatesError ? <ErrorAlert error={updatesError} /> : updatesElement}
     </Container>
   );
 }

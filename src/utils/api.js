@@ -99,10 +99,18 @@ export async function listUpdates(signal) {
 
 export async function createUpdate(update){
   const url = new URL(`${API_BASE_URL}/updates`);
-  //debugger
   return await fetchJson(url, {
     method: "POST",
     headers,
     body: JSON.stringify({ data: update })
+  });
+}
+
+export async function deleteUpdate(updateId){
+  //debugger
+  const url = new URL(`${API_BASE_URL}/updates/${updateId}`);
+  return await fetchJson(url, {
+    method: "DELETE",
+    headers
   });
 }
