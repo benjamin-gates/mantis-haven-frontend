@@ -44,6 +44,7 @@ function PostUpdate() {
             type="text"
             value={formData.title}
             onChange={handleChange}
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="message">
@@ -52,6 +53,7 @@ function PostUpdate() {
             type="text"
             value={formData.message}
             onChange={handleChange}
+            required
           />
         </Form.Group>
         <Form.Group className="mb-3" controlId="image_id">
