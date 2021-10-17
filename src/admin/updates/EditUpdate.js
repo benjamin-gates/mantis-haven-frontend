@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-//import { editImage } from "../../utils/api";
+import { editUpdate } from "../../utils/api";
 import ErrorAlert from "../../layout/ErrorAlert";
 
-function EditUpdate({ update_id, image_url, title, message }) {
+function EditUpdate({ update_id, title, message, image_id, setSaves, saves }) {
   const [show, setShow] = useState(false);
   const [updateError, setUpdateError] = useState(undefined);
 
@@ -14,10 +14,10 @@ function EditUpdate({ update_id, image_url, title, message }) {
   const [formData, setFormData] = useState({
     title: title,
     message: message,
+    image_id: image_id
   });
 
   const handleChange = (e) => {
-    console.log("event", e);
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
@@ -25,12 +25,14 @@ function EditUpdate({ update_id, image_url, title, message }) {
   };
   const handleSave = (e) => {
     e.preventDefault();
-    //console.log("some ajax to handle the save");
-    /*editImage(image_id, formData)
+    editUpdate(update_id, {
+      title: formData.title,
+      message: formData.message,
+      image_id: parseInt(formData.image_id)
+    })
       .then(() => setSaves(saves + 1))
       .then(() => setShow(false))
-      .catch((error) => setUpdateError(error));*/
-    setShow(false);
+      .catch((error) => setUpdateError(error));
   };
 
   return (
@@ -78,6 +80,27 @@ function EditUpdate({ update_id, image_url, title, message }) {
                 width: "100%",
                 flexWrap: "wrap",
               }}
+              onChange={handleChange}
+            />
+        </Modal.Body>
+        <Modal.Body as="label" htmlFor="image_id" style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+        Image ID: <input
+              type="number"
+              name="image_id"
+              id="image_id"
+              placeholder="Image Id"
+              value={formData.image_id}
+              style={{
+                display: "flex",
+                border: "0px solid",
+                fontWeight: "bold",
+                fontSize: "larger",
+                width: "50%",
+                flexWrap: "wrap",
+                marginLeft: "5px"
+              }}
+              min="0"
+              max="30"
               onChange={handleChange}
             />
         </Modal.Body>

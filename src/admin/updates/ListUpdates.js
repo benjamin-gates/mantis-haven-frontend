@@ -12,10 +12,11 @@ import ErrorAlert from "../../layout/ErrorAlert";
 
 function ListUpdates() {
   const [updates, setUpdates] = useState([]);
+  const [saves, setSaves] = useState(0);
   const [updatesError, setUpdatesError] = useState(null);
   const [deleteClicks, setDeleteClicks] = useState(0);
   const [deleteError, setDeleteError] = useState(undefined);
-  useEffect(loadUpdates, [deleteClicks]);
+  useEffect(loadUpdates, [deleteClicks, saves]);
   function loadUpdates() {
     const abortController = new AbortController();
     setUpdatesError(null);
@@ -26,7 +27,6 @@ function ListUpdates() {
   }
 
   const handleDelete = (e) => {
-    //console.log('event', e);
     e.preventDefault();
     if (
       window.confirm("Do you want to delete this image? This cannot be undone.")
@@ -38,7 +38,7 @@ function ListUpdates() {
   };
 
   const updatesElement = updates.map(
-    ({ update_id, title, message, created_at, image_url }, index) => {
+    ({ update_id, title, message, image_id, created_at, image_url }, index) => {
       return (
         <Card key={index} style={{ marginBottom: "10px" }}>
           <Card.Header>{formatAsDate(created_at)}</Card.Header>
@@ -69,7 +69,9 @@ function ListUpdates() {
               title={title}
               update_id={update_id}
               message={message}
-              image_url={image_url}
+              image_id={image_id}
+              setSaves={setSaves}
+              saves={saves}
             />
           </ButtonGroup>
           {deleteError ? <ErrorAlert error={deleteError} /> : null}

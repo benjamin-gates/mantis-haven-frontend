@@ -107,10 +107,18 @@ export async function createUpdate(update){
 }
 
 export async function deleteUpdate(updateId){
-  //debugger
   const url = new URL(`${API_BASE_URL}/updates/${updateId}`);
   return await fetchJson(url, {
     method: "DELETE",
     headers
+  });
+}
+
+export async function editUpdate(updateId, update){
+  const url = new URL(`${API_BASE_URL}/updates/${updateId}`);
+  return await fetchJson(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({data: update})
   });
 }
