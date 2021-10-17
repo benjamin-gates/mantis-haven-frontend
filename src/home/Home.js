@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from "react";
 import Container from "react-bootstrap/Container";
 import Carousel from "react-bootstrap/Carousel";
-import galinthiasamoena2 from "./img/galinthias-amoena-2.jpg";
-import majangellamoultoni from "./img/majangella-moultoni.jpg";
 import {listImages} from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 
@@ -42,11 +40,12 @@ function Home() {
       fluid
       as="main"
       style={{ backgroundColor: "black", margin: "0px", padding: "20px 20px 50px 20px" }}
-    >
-      {images.length ? <Carousel variant="dark" fade>
+    >{imagesError ? (
+    <ErrorAlert error={imagesError} />) : (images.length ? <Carousel variant="dark" fade>
        {imageElements}
-       {/*<ErrorAlert error={imagesError} />*/}
-      </Carousel> : <div>Loading...</div>}
+      </Carousel> : <div>Loading...</div>
+    )}
+      
     </Container>
   );
 }

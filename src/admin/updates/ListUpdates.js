@@ -36,10 +36,9 @@ function ListUpdates() {
       .catch(setDeleteError);
     }
   };
-  //const notificationsList = notifications.data;
+
   const updatesElement = updates.map(
     ({ update_id, title, message, created_at, image_url }, index) => {
-      //console.log('update id', update_id);
       return (
         <Card key={index} style={{ marginBottom: "10px" }}>
           <Card.Header>{formatAsDate(created_at)}</Card.Header>
