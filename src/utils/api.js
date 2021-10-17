@@ -96,3 +96,13 @@ export async function listUpdates(signal) {
 
   return await fetchJson(url, { headers, signal }, []);
 }
+
+export async function createUpdate(update){
+  const url = new URL(`${API_BASE_URL}/updates`);
+  //debugger
+  return await fetchJson(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ data: update })
+  });
+}
