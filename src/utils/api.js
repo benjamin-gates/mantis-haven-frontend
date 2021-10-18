@@ -122,3 +122,8 @@ export async function editUpdate(updateId, update){
     body: JSON.stringify({data: update})
   });
 }
+
+export async function listProducts(signal){
+  const url = new URL(`${API_BASE_URL}/products`);
+  return await fetchJson(url, {headers, signal}, []);
+}
