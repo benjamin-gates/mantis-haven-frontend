@@ -20,7 +20,7 @@ function Shop() {
               height="300px"
             />
             <Card.Text style={{ alignSelf: "center" }}>{price}</Card.Text>
-            <Button as="a" variant="success" href={product_url}>
+            <Button as="a" variant="success" href={product_url} target="_blank">
               Buy
             </Button>
           </Card.Body>
