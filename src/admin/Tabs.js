@@ -10,6 +10,9 @@ function Tabs(){
             <Nav.Link href='/admin/dashboard/images/add'>Create Image</Nav.Link>
           </Nav.Item>
           <Nav.Item>
+            <Nav.Link href='/admin/dashboard/products'>Products List</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
             <Nav.Link href='/admin/dashboard/products/add'>Add Product</Nav.Link>
           </Nav.Item>
           <Nav.Item>

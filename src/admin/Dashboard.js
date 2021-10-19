@@ -5,7 +5,7 @@ import Container from "react-bootstrap/Container";
 import PostUpdate from "./updates/PostUpdate";
 import Nav from "react-bootstrap/Nav";
 import Tab from "react-bootstrap/Tab";
-import AddProduct from "./AddProduct";
+import AddProduct from "./products/AddProduct";
 import Tabs from "./Tabs";
 import AdminRoutes from "./AdminRoutes";
 

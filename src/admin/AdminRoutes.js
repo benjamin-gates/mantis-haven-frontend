@@ -4,7 +4,8 @@ import { Switch, Route } from "react-router-dom";
 import ImageList from "./images/ImageList";
 import CreateImage from "./images/CreateImage";
 import PostUpdate from "./updates/PostUpdate";
-import AddProduct from "./AddProduct";
+import ProductList from "./products/ProductList";
+import AddProduct from "./products/AddProduct";
 import ListUpdates from "./updates/ListUpdates";
 
 function AdminRoutes() {
@@ -19,6 +20,9 @@ function AdminRoutes() {
       </Route>
       <Route path="/admin/dashboard/products/add">
         <AddProduct />
+      </Route>
+      <Route path="/admin/dashboard/products">
+        <ProductList />
       </Route>
       <Route path="/admin/dashboard/updates/add">
         <PostUpdate />
