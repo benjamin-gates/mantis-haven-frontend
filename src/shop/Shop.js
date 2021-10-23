@@ -25,12 +25,12 @@ function Shop() {
           <Card.Body style={{ display: "flex", flexDirection: "column" }}>
             <Card.Title>{product_name}</Card.Title>
 
-            <Card.Img
+            {image_url ? <Card.Img
               src={`https://i.${image_url.slice(8)}.jpg`}
               title="source: imgur.com"
               alt={"mantis image"}
               height="300px"
-            />
+            /> : null}
             <Card.Text style={{ alignSelf: "center" }}>Price: ${price}</Card.Text>
           {status==="available" ? <Button as="a" variant="success" href={product_url} target="_blank">
             Buy

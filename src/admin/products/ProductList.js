@@ -4,14 +4,17 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Badge from "react-bootstrap/Badge";
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import { listProducts } from "../../utils/api";
+import { listProducts, deleteProduct } from "../../utils/api";
 import EditProduct from "./EditProduct";
+import ErrorAlert from "../../layout/ErrorAlert";
 
 function ListProducts() {
   const [products, setProducts] = useState([]);
   const [productsError, setProductsError] = useState(undefined);
+  const [deleteError, setDeleteError] = useState(undefined);
   const [saves, setSaves] = useState(0);
-  useEffect(loadProducts, []);
+  const [deleteClicks, setDeleteClicks] = useState(0);
+  useEffect(loadProducts, [deleteClicks]);
   function loadProducts() {
     const abortController = new AbortController();
     setProductsError(null);
@@ -27,9 +30,9 @@ function ListProducts() {
     if (
       window.confirm("Do you want to delete this image? This cannot be undone.")
     ) {
-      /*deleteUpdate(e.target.id)
+      deleteProduct(e.target.id)
       .then(() => setDeleteClicks(deleteClicks + 1))
-      .catch(setDeleteError);*/
+      .catch(setDeleteError);
     }
   };
   const productElements = products.map(
@@ -73,6 +76,7 @@ function ListProducts() {
               saves={saves}
             />
           </ButtonGroup>
+          {deleteError ? <ErrorAlert error={deleteError} /> : null}
           </Card.Body>
         </Card>
       );
@@ -82,7 +86,7 @@ function ListProducts() {
     <Container fluid as="main" style={{ marginBottom: "40px" }}>
       <h1>Products</h1>
       <hr />
-      {products ? (
+      { productsError ? <ErrorAlert error={productsError} /> : products ? (
         <Container
           fluid
           as="section"

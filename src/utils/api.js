@@ -136,3 +136,11 @@ export async function createProduct(product){
     body: JSON.stringify({data: product})
   });
 }
+
+export async function deleteProduct(productId){
+  const url = new URL(`${API_BASE_URL}/products/${productId}`);
+  return await fetchJson(url, {
+    method: "DELETE",
+    headers
+  });
+}
