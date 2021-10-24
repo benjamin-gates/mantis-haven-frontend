@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Form from "react-bootstrap/Form";
-import { editUpdate } from "../../utils/api";
+import { editProduct } from "../../utils/api";
 import ErrorAlert from "../../layout/ErrorAlert";
 
-function EditUpdate({ product_id, product_name, price, image_id, setSaves, saves }) {
+function EditProduct({ product_id, product_name, product_url, price, image_id, status, setSaves, saves }) {
   const [show, setShow] = useState(false);
   const [updateError, setUpdateError] = useState(undefined);
 
@@ -13,8 +13,10 @@ function EditUpdate({ product_id, product_name, price, image_id, setSaves, saves
   const handleShow = () => setShow(true);
   const [formData, setFormData] = useState({
     product_name: product_name,
+    product_url: product_url,
     price: price,
-    image_id: image_id
+    image_id: image_id,
+    status: status
   });
 
   const handleChange = (e) => {
@@ -25,16 +27,20 @@ function EditUpdate({ product_id, product_name, price, image_id, setSaves, saves
   };
   const handleSave = (e) => {
     e.preventDefault();
-    /*editUpdate(update_id, {
-      title: formData.title,
-      message: formData.message,
-      image_id: parseInt(formData.image_id)
+    editProduct(product_id, {
+      product_name: formData.product_name,
+      product_url: formData.product_url,
+      price: parseInt(formData.price),
+      image_id: parseInt(formData.image_id),
+      status: formData.status
     })
       .then(() => setSaves(saves + 1))
       .then(() => setShow(false))
-      .catch((error) => setUpdateError(error));*/
-      setShow(false);
+      .catch((error) => setUpdateError(error));
+      //setShow(false);
   };
+  console.log('formData', formData);
+
 
   return (
     <>
@@ -85,6 +91,31 @@ function EditUpdate({ product_id, product_name, price, image_id, setSaves, saves
               onChange={handleChange}
             />
         </Modal.Body>
+        <Modal.Body as="label" htmlFor="product_url" style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
+        Square URL: <input
+              type="text"
+              name="product_url"
+              id="product_url"
+              value={formData.product_url}
+              style={{
+                display: "flex",
+                border: "0px solid",
+                fontWeight: "bold",
+                fontSize: "larger",
+                width: "100%",
+                flexWrap: "wrap",
+                marginLeft: "5px"
+              }}
+              onChange={handleChange}
+            />
+        </Modal.Body>
+        <Modal.Body>
+          <Form.Select as="label" aria-label="status" name="status" onChange={handleChange} htmlFor="status">
+            <option>Choose a status</option>
+            <option value="available">Available</option>
+            <option value="out-of-stock">Out of Stock</option>
+          </Form.Select>
+        </Modal.Body>
         <Modal.Body as="label" htmlFor="image_id" style={{display: "flex", flexDirection: "row", alignItems: "center"}}>
         Image ID: <input
               type="number"
@@ -121,4 +152,4 @@ function EditUpdate({ product_id, product_name, price, image_id, setSaves, saves
   );
 }
 
-export default EditUpdate;
+export default EditProduct;

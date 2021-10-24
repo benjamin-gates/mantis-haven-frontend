@@ -29,9 +29,9 @@ function Home() {
     return (
       <Carousel.Item style={{ display: "flex", justifyContent: "center" }}>
         <img src={`https://i.${image_url.slice(8)}.jpg`} title="source: imgur.com" alt={"image"+index} height="550px"/>
-        <Carousel.Caption style={{textAlign: "center"}}>
+        {/*<Carousel.Caption style={{textAlign: "center"}}>
           <h5 style={{ color: "#C3C9E3", textAlign: "center", alignSelf: "center", alignContent: "center"}}>{caption}</h5>
-        </Carousel.Caption>
+    </Carousel.Caption>*/}
       </Carousel.Item>
     );
   });

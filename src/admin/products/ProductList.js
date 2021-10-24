@@ -14,7 +14,7 @@ function ListProducts() {
   const [deleteError, setDeleteError] = useState(undefined);
   const [saves, setSaves] = useState(0);
   const [deleteClicks, setDeleteClicks] = useState(0);
-  useEffect(loadProducts, [deleteClicks]);
+  useEffect(loadProducts, [deleteClicks, saves]);
   function loadProducts() {
     const abortController = new AbortController();
     setProductsError(null);
@@ -43,14 +43,14 @@ function ListProducts() {
             <Card.Title>
               {product_name}
               {status === "available" ? (
-                <Badge bg="success">
+                <Badge bg="success" size="lg" style={{marginLeft: "10px", color: "white"}}>
                   {" "}
                   {`${
                     status.substring(0, 1).toUpperCase() + status.substring(1)
                   }`}{" "}
                 </Badge>
               ) : (
-                <Badge bg="danger"> {status} </Badge>
+                <Badge bg="danger" style={{color: "white"}}> Out of Stock </Badge>
               )}
             </Card.Title>
 
@@ -70,8 +70,10 @@ function ListProducts() {
             <EditProduct
               product_name={product_name}
               product_id={product_id}
+              product_url={product_url}
               price={price}
               image_id={image_id}
+              status={status}
               setSaves={setSaves}
               saves={saves}
             />

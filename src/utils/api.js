@@ -144,3 +144,12 @@ export async function deleteProduct(productId){
     headers
   });
 }
+
+export async function editProduct(productId, product){
+  const url = new URL(`${API_BASE_URL}/products/${productId}`);
+  return await fetchJson(url, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify({ data: product })
+  });
+}

@@ -24,7 +24,6 @@ function Shop() {
         <Card style={{ width: "18rem" }} key={index}>
           <Card.Body style={{ display: "flex", flexDirection: "column" }}>
             <Card.Title>{product_name}</Card.Title>
-
             {image_url ? <Card.Img
               src={`https://i.${image_url.slice(8)}.jpg`}
               title="source: imgur.com"
