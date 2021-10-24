@@ -51,3 +51,20 @@ footer .navbar-nav{
 .navbar-nav{
   justify-content: space-between;
 }
+
+.admin-tab a:link{
+  color: pink;
+}
+
+.admin-tab a:visited{
+  color: green;
+}
+
+.admin-tab a:hover{
+  color: white;
+}
+
+.admin-tab a:active{
+  color: white;
+}
+

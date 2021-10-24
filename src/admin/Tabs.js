@@ -2,10 +2,10 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 
 function Tabs(){
-   return ( <Nav className="flex-row">
+   return ( <Nav className="flex-row admin-tab">
           <Nav.Item>
             <Nav.Link href='/admin/dashboard/images'>Images List</Nav.Link>
-          </Nav.Item>
+          </Nav.Item >
           <Nav.Item>
             <Nav.Link href='/admin/dashboard/images/add'>Create Image</Nav.Link>
           </Nav.Item>
