@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import {useRouteMatch} from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Card from "react-bootstrap/Card";
 import Row from "react-bootstrap/Row";
@@ -16,6 +17,8 @@ function ListUpdates() {
   const [updatesError, setUpdatesError] = useState(null);
   const [deleteClicks, setDeleteClicks] = useState(0);
   const [deleteError, setDeleteError] = useState(undefined);
+  const {url} = useRouteMatch();
+  console.log('url list', url);
   useEffect(loadUpdates, [deleteClicks, saves]);
   function loadUpdates() {
     const abortController = new AbortController();

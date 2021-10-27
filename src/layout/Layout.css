@@ -52,6 +52,7 @@ footer .navbar-nav{
   justify-content: space-between;
 }
 
+
 .admin-tab a:link{
   color: pink;
 }
@@ -60,11 +61,19 @@ footer .navbar-nav{
   color: green;
 }
 
+.admin-tab a:focus{
+  color: purple;
+}
+
 .admin-tab a:hover{
   color: white;
 }
 
 .admin-tab a:active{
-  color: white;
+  color: purple;
+}
+
+.admin-tab a::after{
+  color: blue;
 }
 

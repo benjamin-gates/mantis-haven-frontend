@@ -14,7 +14,7 @@ function Dashboard() {
   const [activeKey, setActiveKey] = useState("/images");
   const history = useHistory();
   const params = useParams();
-  console.log('use route match', useRouteMatch());
+  console.log('use route match dashboard', useRouteMatch());
   console.log('params', params);
   console.log('history', history);
   return (
@@ -65,7 +65,7 @@ function Dashboard() {
           </Nav.Item>
      </Nav>*/}
      <Tabs />
-     <AdminRoutes />
+     <AdminRoutes/>
         {/*<Tab.Content>
           <Tab.Pane eventKey="images">
             <ImageDashboard />

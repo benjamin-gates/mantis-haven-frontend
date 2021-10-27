@@ -44,6 +44,7 @@ function Shop() {
             {status === "available" ? (
               <Button
                 as="a"
+                className="product-button"
                 variant="success"
                 href={product_url}
                 target="_blank"
@@ -52,7 +53,7 @@ function Shop() {
                 Buy
               </Button>
             ) : (
-              <Button variant="danger" disabled style={{width: "300px"}}>
+              <Button variant="danger" className="product-button" disabled style={{width: "300px"}}>
                 Out of Stock
               </Button>
             )}
