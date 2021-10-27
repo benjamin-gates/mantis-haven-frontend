@@ -18,8 +18,8 @@ function Login(){
                 <input type="text" style={{width: "180px", marginLeft:"13px"}}/>
             </label>
             <div className="btn-group" role="group" aria-label="login-buttons" style={{width: "100px", display: "flex", justifyContent: "left", alignSelf: "left", margin: "0px"}}>
-            <button type="button" className="btn btn-success btn-outline-light" onClick={() => history.goBack()}>Cancel</button>
-            <button type="submit" className="btn btn-success btn-outline-light">Login</button>
+            <button type="button" className="btn btn-success btn-outline-light cancel" onClick={() => history.goBack()}>Cancel</button>
+            <button type="submit" className="btn btn-success btn-outline-light login">Login</button>
             </div>
         </form>
     )
