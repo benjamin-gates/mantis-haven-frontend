@@ -153,3 +153,12 @@ export async function editProduct(productId, product){
     body: JSON.stringify({ data: product })
   });
 }
+
+export async function validateUser(user){
+  const url = new URL(`${API_BASE_URL}/auth`);
+  return await fetchJson(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify({ data: user})
+  });
+}
