@@ -1,27 +1,23 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import { validateUser } from "../utils/api";
 import ErrorAlert from "../layout/ErrorAlert";
 
-function Login() {
+function Login({setCookie}) {
   const history = useHistory();
   const [loginError, setLoginError] = useState(null);
   const initialState = {
-    user_name: "",
+    username: "",
     password: "",
   };
   const [formData, setFormData] = useState(initialState);
   const handleSubmit = (e) => {
     e.preventDefault();
-    validateUser(formData)
-      .then(() => history.push("/admin/dashboard"))
-      .catch(setLoginError);
+    history.push("/admin/dashboard/images");
   };
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
 
   return (
     <>
@@ -36,17 +32,17 @@ function Login() {
         }}
       >
         <label
-          htmlFor="user_name"
+          htmlFor="username"
           className="form-component"
           style={{ width: "300px" }}
         >
           Username:
           <input
             type="text"
-            name="user_name"
-            id="user_name"
+            name="username"
+            id="username"
             style={{ width: "180px", marginLeft: "10px" }}
-            value={formData.user_name}
+            value={formData.username}
             onChange={handleChange}
           />
         </label>
